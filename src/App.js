@@ -1,9 +1,9 @@
 import React from "react";
 import "./App.css";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/Navbar";
 import Details from "./components/Details";
 import CurrentWeather from "./components/CurrentWeather";
-import WeatherForest from "./components/WeatherForecast";
+import WeatherForest from "./components/FiveDayWeatherForecast";
 import { ApiKeyProvider } from "./context/ApiKeyContext";
 import { LocationNameProvider } from "./context/LocationNameContext";
 

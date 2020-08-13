@@ -6,6 +6,7 @@ import { LocationNameContext } from "../context/LocationNameContext";
 const CurrentWeather = () => {
   const apiKey = useContext(ApiKey);
   const location = useContext(LocationNameContext)[0];
+  const url = `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`;
   const [notFound, setNotFound] = useState(false);
   const [temp, setTemp] = useState(null);
   const [weather, setWeather] = useState(null);
@@ -17,7 +18,7 @@ const CurrentWeather = () => {
     setLoading(true);
     if (location !== "") {
       axios
-        .get(`http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`)
+        .get(url)
         .then((res) => {
           setWeather(res.data.weather[0].main);
           setTemp(res.data.main.temp);
@@ -30,7 +31,7 @@ const CurrentWeather = () => {
           setLoading(false);
         });
     }
-  }, [apiKey, location]);
+  }, [location, url]);
 
   if (!isLoading & !notFound) {
     content = (
@@ -42,7 +43,7 @@ const CurrentWeather = () => {
       </div>
     );
   } else if (!isLoading & notFound) content = <h1>This location is not exist...</h1>;
-  else content = <h1>Loading...</h1>;
+  else content = "";
 
   return content;
 };
