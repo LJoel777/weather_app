@@ -4,14 +4,19 @@ import NavBar from "./components/NavBar";
 import Details from "./components/Details";
 import CurrentWeather from "./components/CurrentWeather";
 import WeatherForest from "./components/WeatherForecast";
+import { ApiKeyProvider } from "./context/ApiKey";
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
-      <CurrentWeather />
-      <WeatherForest />
-      <Details />
+      <div>
+        <NavBar />
+        <ApiKeyProvider>
+          <CurrentWeather />
+          <WeatherForest />
+          <Details />
+        </ApiKeyProvider>
+      </div>
     </div>
   );
 }
