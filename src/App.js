@@ -9,7 +9,7 @@ import { ApiKeyProvider } from "./context/ApiKey";
 function App() {
   return (
     <div className="App">
-      <div>
+      <div className="container">
         <NavBar />
         <ApiKeyProvider>
           <CurrentWeather />

@@ -12,7 +12,7 @@ const CurrentWeather = () => {
   useEffect(() => {
     setLoading(true);
     axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`).then((res) => {
-      setWeather(res.data.weather.id);
+      setWeather(res.data.weather[0].main);
       setTemp(res.data.main.temp);
       setLoading(false);
     });
@@ -24,10 +24,28 @@ const CurrentWeather = () => {
     console.log(weather);
     content = (
       <div className="currentWeather">
-        <h1>{location}</h1>
-        <h1>{temp}</h1>
-        <h1>{weather}</h1>
-      </div>
+        <div className="row">
+          <div className="nothing">
+
+          </div>
+        <div className="card">
+            <img className="cardIMG" src="http://placehold.it/400x250/000/fff" />
+            <div className="card-header">
+                <h4 className="card-title">Product name</h4>
+                <p className="card-text" >Product description... </p>
+            </div>
+            <div className="card-body">
+                <div className="card-text">
+                    <p className="lead" >100 USD</p>
+                </div>
+                <div className="button-text">
+                    <a className="btn btn-success addButtons" >Add to cart</a>
+                </div>
+            </div>
+          </div>
+        </div>
+        </div>
+       
     );
   } else content = "Loading...";
 
