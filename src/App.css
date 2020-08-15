@@ -54,13 +54,10 @@
   text-shadow: 3px 6px rgba(50, 50, 70, 0.5);
 }
 .weather {
-  position: relative;
-  top: 30px;
+  color: #fff;
+  font-size: 30px;
+  font-style: italic;
   text-align: center;
-  font-size: 40px;
-  font-weight: bold;
-  color: white;
-  text-shadow: black, 2px, 2px, 2px;
 }
 .card:hover {
   background: rgba(39, 37, 37, 0.7);

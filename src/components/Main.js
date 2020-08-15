@@ -7,7 +7,7 @@ import { WeatherContext } from "../context/WeatherContext";
 import MainDiv from "../styles/MainStyle";
 
 const Main = () => {
-  const weather = useContext(WeatherContext).weather[1];
+  const weather = useContext(WeatherContext)[0];
   return (
     <MainDiv weather={weather}>
       <div className="container">

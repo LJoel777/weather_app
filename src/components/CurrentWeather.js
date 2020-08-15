@@ -7,9 +7,10 @@ import { WeatherContext } from "../context/WeatherContext";
 const CurrentWeather = () => {
   const apiKey = useContext(ApiKey);
   const location = useContext(LocationNameContext)[0];
-  const [temp, setTemp] = useContext(WeatherContext).temp;
-  const setWeather = useContext(WeatherContext).weather[1];
-  const [icon, setIcon] = useContext(WeatherContext).icon;
+  const [temp, setTemp] = useState(null);
+  const [icon, setIcon] = useState("");
+  const [weatherDescription, setWeatherDescription] = useState("");
+  const setWeather = useContext(WeatherContext)[1];
   const [notFound, setNotFound] = useState(false);
   const [isLoading, setLoading] = useState(false);
 
@@ -22,6 +23,7 @@ const CurrentWeather = () => {
         .get(`http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`)
         .then((res) => {
           setWeather(res.data.weather[0].main);
+          setWeatherDescription(res.data.weather[0].description);
           setTemp(res.data.main.temp);
           setIcon(`http://openweathermap.org/img/wn/${res.data.weather[0].icon}@2x.png`);
           setNotFound(false);
@@ -32,7 +34,7 @@ const CurrentWeather = () => {
           setLoading(false);
         });
     }
-  }, [apiKey, location, setIcon, setTemp, setWeather]);
+  }, [apiKey, location, setWeather]);
 
   if (!isLoading & !notFound) {
     content = (
@@ -43,11 +45,13 @@ const CurrentWeather = () => {
             <div className="card-header">
               <h2 className="location">{location}</h2>
             </div>
-            <div className="card-text">
-              <p className="temp">{Math.round(temp)} &#8451;</p>
+            <div className="card-body">
+              <div className="card-text">
+                <p className="weather">{weatherDescription}</p>
+                <p className="temp">{Math.round(temp)} &#8451;</p>
+              </div>
+              <img className="cardIMG" src={icon} alt="icon" />
             </div>
-            <img className="cardIMG" src={icon} alt="icon" />
-            <div className="card-body"></div>
           </div>
         </div>
       </div>
