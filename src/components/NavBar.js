@@ -11,13 +11,13 @@ const NavBar = () => {
   };
 
   return (
-      <div className="search-box">
-        {/* <input type="text" className="search-box" placeholder="City..." onKeyDown={search} /> */}
+    <div className="search-box">
+      {/* <input type="text" className="search-box" placeholder="City..." onKeyDown={search} /> */}
       <div className="form">
-      <input type="search" className="search-box" onKeyDown={search} />
-      <i class="fa fa-search"></i>
-    </div>
+        <input type="search" className="search-box" onKeyDown={search} />
+        <i className="fa fa-search"></i>
       </div>
+    </div>
   );
 };
 
