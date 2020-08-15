@@ -8,11 +8,11 @@ export const WeatherProvider = (props) => {
   const [icon, setIcon] = useState("");
   return (
     <WeatherContext.Provider
-      value={[
-        [temp, setTemp],
-        [weather, setWeather],
-        [icon, setIcon],
-      ]}
+      value={{
+        temp: [temp, setTemp],
+        weather: [weather, setWeather],
+        icon: [icon, setIcon],
+      }}
     >
       {props.children}
     </WeatherContext.Provider>

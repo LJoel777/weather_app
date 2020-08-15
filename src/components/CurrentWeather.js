@@ -7,9 +7,9 @@ import { WeatherContext } from "../context/WeatherContext";
 const CurrentWeather = () => {
   const apiKey = useContext(ApiKey);
   const location = useContext(LocationNameContext)[0];
-  const [temp, setTemp] = useContext(WeatherContext)[0];
-  const setWeather = useContext(WeatherContext)[1][1];
-  const [icon, setIcon] = useContext(WeatherContext)[2];
+  const [temp, setTemp] = useContext(WeatherContext).temp;
+  const setWeather = useContext(WeatherContext).weather[1];
+  const [icon, setIcon] = useContext(WeatherContext).icon;
   const [notFound, setNotFound] = useState(false);
   const [isLoading, setLoading] = useState(false);
 
@@ -26,7 +26,6 @@ const CurrentWeather = () => {
           setIcon(`http://openweathermap.org/img/wn/${res.data.weather[0].icon}@2x.png`);
           setNotFound(false);
           setLoading(false);
-          console.log("most");
         })
         .catch((error) => {
           setNotFound(true);
