@@ -122,7 +122,7 @@ input {
   color: white;
 }
 
-.flipButton{
-  position: relative;
-  top:-50px;
+.react-card-flipper {
+  position: absolute;
+  left: 37%; 
 }
