@@ -121,3 +121,8 @@ input {
   background: #07051a;
   color: white;
 }
+
+.flipButton{
+  position: relative;
+  top:-50px;
+}

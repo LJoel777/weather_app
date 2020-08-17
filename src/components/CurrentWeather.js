@@ -3,6 +3,7 @@ import { ApiKey } from "../context/ApiKeyContext";
 import axios from "axios";
 import { LocationNameContext } from "../context/LocationNameContext";
 import { WeatherContext } from "../context/WeatherContext";
+import ReactCardFlip from 'react-card-flip';
 
 const CurrentWeather = () => {
   const apiKey = useContext(ApiKey);
@@ -14,10 +15,19 @@ const CurrentWeather = () => {
   const [notFound, setNotFound] = useState(false);
   const [isLoading, setLoading] = useState(false);
 
+
+ 
+    const [isFlipped,setIsFlipped] = useState(false);
+    const handleClick = () =>{
+      setIsFlipped(!isFlipped);
+    };
+
+
   let content;
 
   useEffect(() => {
     setLoading(true);
+
     if (location !== "") {
       axios
         .get(`http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`)
@@ -37,11 +47,13 @@ const CurrentWeather = () => {
   }, [apiKey, location, setWeather]);
 
   if (!isLoading & !notFound) {
+   
     content = (
       <div className="currentWeather">
         <div className="row">
           <div className="nothing"></div>
-          <div className="card">
+          <ReactCardFlip isFlipped = {isFlipped} flipDirection="vertical" >
+          <div className="card" onClick={handleClick}>
             <div className="card-header">
               <h2 className="location">{location}</h2>
             </div>
@@ -53,8 +65,12 @@ const CurrentWeather = () => {
               <img className="cardIMG" src={icon} alt="icon" />
             </div>
           </div>
+          <div className="card" onClick={handleClick}>
+            </div>
+          </ReactCardFlip>
         </div>
       </div>
+
     );
   } else if (!isLoading & notFound) content = <h1 className="alert">This location is not exist...</h1>;
   else content = <h1 className="alert">Write a location name...</h1>;
