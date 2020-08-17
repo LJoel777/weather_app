@@ -3,11 +3,11 @@ import NavBar from "./NavBar";
 import Details from "./Details";
 import CurrentWeather from "./CurrentWeather";
 import WeatherForest from "./WeatherForecast";
-import { WeatherContext } from "../context/WeatherContext";
+import { WeatherTypeContext } from "../context/WeatherTypeContext";
 import MainDiv from "../styles/MainStyle";
 
 const Main = () => {
-  const weather = useContext(WeatherContext)[0];
+  const weather = useContext(WeatherTypeContext)[0];
   return (
     <MainDiv weather={weather}>
       <div className="container">
