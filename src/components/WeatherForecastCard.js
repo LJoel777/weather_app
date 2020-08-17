@@ -10,6 +10,7 @@ const WeatherForecastCard = (props) => {
   const [maxTemp, setMaxTemp] = useState(null);
   const [icon, setIcon] = useState("");
   const [weatherDescription, setWeatherDescription] = useState("");
+  const [date, setDate] = useState("");
   const [isLoading, setLoading] = useState(false);
   const [notFound, setNotFound] = useState(false);
 
@@ -35,6 +36,7 @@ const WeatherForecastCard = (props) => {
           let lastDataIndex = props.dayNum === 4 ? res.data.list.length - 1 : calculateIndex(res.data.list[0].dt)[1] + 8 * props.dayNum;
           setMaxTemp(res.data.list[lastDataIndex].main.temp_max);
           setMinTemp(res.data.list[firsDataIndex].main.temp_min);
+          setDate(res.data.list[lastDataIndex].dt_txt.split(" ")[0]);
           setLoading(false);
           setIcon(`http://openweathermap.org/img/wn/${res.data.list[lastDataIndex].weather[0].icon}@2x.png`);
           setWeatherDescription(res.data.list[lastDataIndex].weather[0].description);
@@ -59,6 +61,7 @@ const WeatherForecastCard = (props) => {
             <div className="card-body">
               <div className="card-text">
                 <p className="weather">{weatherDescription}</p>
+                <p className="">{date}</p>
                 <p className="temp">{Math.round(minTemp)} &#8451;</p>
                 <p className="temp">{Math.round(maxTemp)} &#8451;</p>
               </div>
