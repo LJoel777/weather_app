@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import NavBar from "./NavBar";
-import Details from "./Details";
 import CurrentWeather from "./CurrentWeather";
 import WeatherForest from "./WeatherForecast";
 import { WeatherTypeContext } from "../context/WeatherTypeContext";
@@ -14,7 +13,6 @@ const Main = () => {
         <NavBar />
         <CurrentWeather />
         <WeatherForest />
-        <Details />
       </div>
     </MainDiv>
   );
