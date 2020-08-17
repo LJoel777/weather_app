@@ -24,6 +24,18 @@ const WeatherForecastCard = (props) => {
     return [firstIndex, lastIndex];
   };
 
+  const dateBuilder = (d) => {
+    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+    let day = days[d.getDay()];
+    let date = d.getDate();
+    let month = months[d.getMonth()];
+    let year = d.getFullYear();
+
+    return `${day} ${date} ${month} ${year}`;
+  };
+
   let content;
 
   useEffect(() => {
@@ -36,7 +48,8 @@ const WeatherForecastCard = (props) => {
           let lastDataIndex = props.dayNum === 4 ? res.data.list.length - 1 : calculateIndex(res.data.list[0].dt)[1] + 8 * props.dayNum;
           setMaxTemp(res.data.list[lastDataIndex].main.temp_max);
           setMinTemp(res.data.list[firsDataIndex].main.temp_min);
-          setDate(res.data.list[lastDataIndex].dt_txt.split(" ")[0]);
+          const date = new Date(res.data.list[lastDataIndex].dt * 1000);
+          setDate(dateBuilder(date));
           setLoading(false);
           setIcon(`http://openweathermap.org/img/wn/${res.data.list[lastDataIndex].weather[0].icon}@2x.png`);
           setWeatherDescription(res.data.list[lastDataIndex].weather[0].description);
