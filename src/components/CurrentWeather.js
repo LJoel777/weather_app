@@ -46,9 +46,8 @@ const CurrentWeather = () => {
 
   if (!isLoading & !notFound) {
     content = (
-      <div className="currentWeather">
-        <div className="row">
-          <div className="nothing"></div>
+      <div className="col-sm-6">
+        <div className="currentWeather">
           <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
             <div className="card" onClick={handleClick}>
               <CurrentWeatherMain weather={weather} location={location} />
@@ -58,7 +57,7 @@ const CurrentWeather = () => {
             </div>
           </ReactCardFlip>
         </div>
-      </div>
+        </div>
     );
   } else if (!isLoading & notFound)
     content = <h1 className="alert">This location does not exist.</h1>;
