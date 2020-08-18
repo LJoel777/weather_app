@@ -2,7 +2,7 @@
   height: 10vh;
   width: 100vh;
 }
-.row{
+.row {
   position: relative;
 }
 .card {
@@ -60,7 +60,7 @@
 .card:hover {
   background: rgba(39, 37, 37, 0.7);
 }
-.search-box{
+.search-box {
   position: relative;
 }
 .form {
@@ -125,13 +125,17 @@ input {
 
 .react-card-flipper {
   position: relative;
-  
 }
-.col-sm-4{
+.col-sm-4 {
   position: relative;
   left: 50%;
-  transform:translateX(-50%);
+  transform: translateX(-50%);
 }
-.row{
-      padding: 50px;
+.row {
+  padding: 50px;
+}
+
+.detail {
+  color: white;
+  font-weight: 900;
 }
