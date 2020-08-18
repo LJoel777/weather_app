@@ -4,6 +4,7 @@ import Rain from "../images/Rain.jpg";
 import Clear from "../images/Clear.jpg"
 import Snow from "../images/Snow.jpeg"
 import Mist from "../images/Mist.jpeg"
+import Thunder from "../images/Thunder.jpeg"
 
 
 const backgroundDecider = (weather) => {
@@ -22,6 +23,8 @@ const backgroundDecider = (weather) => {
     case "Haze":
     case "Fog":
       return Mist;
+    case "Thunderstorm":
+      return Thunder;
     default:
       return Clouds;
   }
