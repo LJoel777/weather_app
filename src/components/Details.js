@@ -2,14 +2,14 @@ import React from "react";
 
 const Details = (props) => {
   return (
-    <div>
+    <div className="card">
       <div className="card-header">
         <h2 className="location">{props.location}</h2>
       </div>
       <div className="card-body">
-        <div className="card-text">
-          <p className="detail">Country: {props.weather.sys.country}</p>
-          <p className="detail">
+        <div className="card-text" id="details">
+          <p>Country: {props.weather.sys.country}</p>
+          <p>
             Sun rises at: {new Date(props.weather.sys.sunrise * 1000).getHours()}:{new Date(props.weather.sys.sunrise * 1000).getMinutes()}
           </p>
           <p className="detail">

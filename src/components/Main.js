@@ -14,12 +14,12 @@ const Main = () => {
   }
   return (
     <MainDiv weather={weather} temp={temp}>
-      <div className="container">
-        <NavBar />
-        <div className="row">
+      <div className="container-fluid">
+        <div className="row-fluid">
+          <NavBar />
           <CurrentWeather />
-          <WeatherForecast />
         </div>
+        <WeatherForecast />
       </div>
     </MainDiv>
   );

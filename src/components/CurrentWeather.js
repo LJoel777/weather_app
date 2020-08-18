@@ -44,7 +44,7 @@ const CurrentWeather = () => {
 
   if (!isLoading & !notFound) {
     content = (
-      <div className="col-sm-6">
+      <div className="col-3" align="center">
         <div className="currentWeather">
           <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
             <div className="card" onClick={handleClick}>

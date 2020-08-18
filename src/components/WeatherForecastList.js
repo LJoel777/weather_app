@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import WeatherForecastCard from "./WeatherForecastCard";
+import { LocationNameContext } from "../context/LocationNameContext";
 
 const WeatherForecast = () => {
+  const location = useContext(LocationNameContext)[0];
   const daysNumberList = [0, 1, 2, 3, 4];
 
-  return (
-    <div className="col-sm-6">
-      {daysNumberList.map((dayNum) => (
-        <WeatherForecastCard key={dayNum} dayNum={dayNum} />
-      ))}
-    </div>
-  );
+  let content;
+  if (location !== "") {
+    content = (
+      <div className="row-fluid justify-content-center">
+        <div className="forecast">
+          {daysNumberList.map((dayNum) => (
+            <WeatherForecastCard key={dayNum} dayNum={dayNum} />
+          ))}
+        </div>
+      </div>
+    );
+  } else content = "";
+
+  return content;
 };
 
 export default WeatherForecast;
