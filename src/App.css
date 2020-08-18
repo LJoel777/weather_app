@@ -1,24 +1,22 @@
-.nothing {
-  height: 10vh;
-  width: 100vh;
-}
-.row{
+.row {
   position: relative;
 }
 .card {
   background: rgba(39, 37, 37, 0.5);
   border-radius: 20px;
+  min-width: 250px;
 }
 .cardIMG {
   position: relative;
   width: 50%;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .alert {
-  margin-top: 100px;
+  position: absolute;
   text-align: center;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%);
 }
 
 .location {
@@ -31,7 +29,7 @@
   transform: translateX(-50%);
   font-family: sans-serif;
   color: #fff;
-  font-size: 55px;
+  font-size: 3.5em;
 }
 
 .card-text {
@@ -42,25 +40,31 @@
 .temp {
   position: relative;
   display: inline-block;
+  color: white;
   margin: 30px, auto;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 20px;
   padding: 15px 25px;
-  color: #fff;
-  font-size: 102px;
+  font-size: 5em;
   font-weight: 900;
   text-shadow: 3px 6px rgba(50, 50, 70, 0.5);
 }
+@media (max-width: 1590px) {
+  .temp {
+    font-size: 3em;
+  }
+}
 .weather {
-  color: #fff;
-  font-size: 30px;
+  font-size: 1.9em;
   font-style: italic;
+  font-weight: bold;
+  color: white;
   text-align: center;
 }
 .card:hover {
   background: rgba(39, 37, 37, 0.7);
 }
-.search-box{
+.search-box {
   position: relative;
 }
 .form {
@@ -70,7 +74,7 @@
   transform: translate(-50%, -50%);
   transition: all 1s;
   width: 50px;
-  height: 60px;
+  height: 50px;
   background: white;
   box-sizing: border-box;
   border-radius: 25px;
@@ -97,7 +101,7 @@ input {
 .fa {
   box-sizing: border-box;
   padding: 10px;
-  width: 42.5px;
+  width: 45.5px;
   height: 42.5px;
   position: absolute;
   top: 0;
@@ -125,13 +129,27 @@ input {
 
 .react-card-flipper {
   position: relative;
-  
 }
-.col-sm-4{
-  position: relative;
-  left: 50%;
-  transform:translateX(-50%);
+.row-fluid {
+  padding: 50px;
+  display: flex;
 }
-.row{
-      padding: 50px;
+
+.forecast {
+  display: flex;
+  width: 100%;
+  background: rgba(39, 37, 37, 0.5);
+  opacity: 1;
+  color: white;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: sans-serif;
+  text-transform: capitalize;
+}
+
+#details {
+  color: white;
+  font-size: 1.21em;
+  font-weight: bold;
 }

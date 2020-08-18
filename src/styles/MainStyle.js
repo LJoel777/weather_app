@@ -6,32 +6,17 @@ import Snow from "../images/Snow.jpeg"
 import Mist from "../images/Mist.jpeg"
 import Thunder from "../images/Thunder.jpeg"
 
-
-const backgroundDecider = (weather) => {
-  switch (weather) {
-    case "Clouds":
-      return Clouds;
-    case "Rain":
-    case "Drizzle":
-      return Rain;
-    case "Clear":
-      return Clear;
-    case "Snow":
-      return Snow;
-    case "Mist":
-    case "Smoke":
-    case "Haze":
-    case "Fog":
-      return Mist;
-    case "Thunderstorm":
-      return Thunder;
-    default:
-      return Clouds;
-  }
+const backgroundDecider = (weather, temp) => {
+  if (weather === "Rain" || weather === "Drizzle") return Rain;
+  else if (weather === "Clear") return Clear;
+  else if (weather === "Snow" || temp < 0) return Snow;
+  else if (weather === "Mist" || weather === "Smoke" || weather === "Haze" || weather === "Fog") return Mist;
+  else if (weather === "Thunderstorm") return Thunder;
+  return Clouds;
 };
 
 const MainDiv = styled.div`
-  background: url(${(props) => backgroundDecider(props.weather)});
+  background: url(${(props) => backgroundDecider(props.weather, props.temp)});
   position: absolute;
   min-width: 100%;
   min-height: 100%;
