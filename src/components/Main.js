@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import NavBar from "./NavBar";
 import Details from "./Details";
 import CurrentWeather from "./CurrentWeather";
-import WeatherForecast from "./WeatherForecast";
+import WeatherForecast from "./WeatherForecastList";
 import { WeatherTypeContext } from "../context/WeatherTypeContext";
 import MainDiv from "../styles/MainStyle";
 
