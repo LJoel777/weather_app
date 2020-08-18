@@ -6,12 +6,10 @@ import { WeatherContext } from "../context/WeatherContext";
 import ReactCardFlip from "react-card-flip";
 import CurrentWeatherMain from "./CurrentWeatherMain";
 import Details from "./Details";
-import { WeatherTypeContext } from "../context/WeatherTypeContext";
 
 const CurrentWeather = () => {
   const apiKey = useContext(ApiKey);
   const location = useContext(LocationNameContext)[0];
-  const setWeatherType = useContext(WeatherTypeContext)[1];
   const [weather, setWeather] = useContext(WeatherContext);
   const [notFound, setNotFound] = useState(false);
   const [isLoading, setLoading] = useState(true);
@@ -31,7 +29,6 @@ const CurrentWeather = () => {
         .get(`http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`)
         .then((res) => {
           setWeather(res.data);
-          setWeatherType(res.data.weather[0].main);
           setNotFound(false);
           setLoading(false);
         })
@@ -40,7 +37,7 @@ const CurrentWeather = () => {
           setLoading(false);
         });
     }
-  }, [apiKey, location, setWeather, setWeatherType]);
+  }, [apiKey, location, setWeather]);
 
   if (!isLoading & !notFound) {
     content = (
