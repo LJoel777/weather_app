@@ -11,14 +11,12 @@ const NavBar = () => {
   };
 
   return (
-    <div className="row">
-    <div className="col-sm-4">
+    <div className="col-4">
     <div className="search-box">
       <div className="form">
         <input type="search" className="search-box" onKeyDown={search} />
         <i className="fa fa-search"></i>
       </div>
-    </div>
     </div>
     </div>
   );

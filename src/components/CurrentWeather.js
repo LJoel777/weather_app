@@ -25,6 +25,7 @@ const CurrentWeather = () => {
 
   useEffect(() => {
     setLoading(true);
+    setIsFlipped(false);
 
     if (location !== "") {
       axios
@@ -46,8 +47,8 @@ const CurrentWeather = () => {
 
   if (!isLoading & !notFound) {
     content = (
-      <div className="col-sm-6">
-        <div className="currentWeather">
+      <div className="col-3" align="center">
+        <div className="currentWeather" >
           <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
             <div className="card" onClick={handleClick}>
               <CurrentWeatherMain weather={weather} location={location} />

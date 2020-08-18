@@ -64,25 +64,21 @@ const WeatherForecastCard = (props) => {
 
   if (!isLoading & !notFound) {
     content = (
-      <div className="currentWeather">
-        <div className="row">
-          <div className="nothing"></div>
-          <div className="card">
-            <div className="card-header">
-              <h2 className="location">{location}</h2>
+      <div className="col" align="center">
+          <div className="cardForecast">
+            <div className="card-header-forecast">
+            <img className="cardIMGforecast" src={icon} alt="icon" />
             </div>
-            <div className="card-body">
-              <div className="card-text">
-                <p className="weather">{weatherDescription}</p>
+            <div className="card-body-forecast">
+              <div className="card-text-forecast">
+                <p className="weather-forecast">{weatherDescription}</p>
                 <p className="">{date}</p>
-                <p className="temp">{Math.round(minTemp)} &#8451;</p>
-                <p className="temp">{Math.round(maxTemp)} &#8451;</p>
+                <p className="temp-forecast">{Math.round(minTemp)} &#8451;</p>
+                <p className="temp-forecast">{Math.round(maxTemp)} &#8451;</p>
               </div>
-              <img className="cardIMG" src={icon} alt="icon" />
             </div>
           </div>
-        </div>
-      </div>
+       </div>
     );
   } else content = "";
 

@@ -9,12 +9,13 @@ const Main = () => {
   const weather = useContext(WeatherTypeContext)[0];
   return (
     <MainDiv weather={weather}>
-      <div className="container">
+      <div className="container-fluid">
+        <div className="row-fluid">
         <NavBar />
-        <div className="row">
           <CurrentWeather />
-          <WeatherForecast />
         </div>
+          <WeatherForecast />
+   
       </div>
     </MainDiv>
   );
