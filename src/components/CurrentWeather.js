@@ -53,7 +53,7 @@ const CurrentWeather = () => {
               <CurrentWeatherMain weather={weather} location={location} />
             </div>
             <div className="card" onClick={handleClick}>
-              <Details weather={weather} location={location}/>
+              <Details weather={weather} location={location} />
             </div>
           </ReactCardFlip>
         </div>
