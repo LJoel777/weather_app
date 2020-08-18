@@ -12,8 +12,9 @@ const Main = () => {
       <div className="container">
         <NavBar />
         <div className="row">
-        <CurrentWeather />
-        <WeatherForest />
+          <CurrentWeather />
+          <WeatherForecast />
+        </div>
       </div>
     </MainDiv>
   );

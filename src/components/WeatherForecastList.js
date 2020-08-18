@@ -5,7 +5,7 @@ const WeatherForecast = () => {
   const daysNumberList = [0, 1, 2, 3, 4];
 
   return (
-    <div>
+    <div className="col-sm-6">
       {daysNumberList.map((dayNum) => (
         <WeatherForecastCard key={dayNum} dayNum={dayNum} />
       ))}
