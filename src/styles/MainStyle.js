@@ -1,16 +1,17 @@
 import styled from "styled-components";
 import Clouds from "../images/Clouds.jpg";
 import Rain from "../images/Rain.jpg";
-import Clear from "../images/Clear.jpg";
-import Snow from "../images/Snow.jpeg";
-import Mist from "../images/Mist.jpeg";
+import Clear from "../images/Clear.jpg"
+import Snow from "../images/Snow.jpeg"
+import Mist from "../images/Mist.jpeg"
+import Thunder from "../images/Thunder.jpeg"
 
 const backgroundDecider = (weather, temp) => {
-  console.log(temp);
   if (weather === "Rain" || weather === "Drizzle") return Rain;
   else if (weather === "Clear") return Clear;
   else if (weather === "Snow" || temp < 0) return Snow;
   else if (weather === "Mist" || weather === "Smoke" || weather === "Haze" || weather === "Fog") return Mist;
+  else if (weather === "Thunderstorm") return Thunder;
   return Clouds;
 };
 
