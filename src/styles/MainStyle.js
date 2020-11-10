@@ -7,9 +7,9 @@ import Mist from "../images/Mist.jpeg";
 import Thunder from "../images/Thunder.jpeg";
 
 const backgroundDecider = (weather, temp) => {
-  if (weather === "Rain" || weather === "Drizzle") return Rain;
+  if (weather === "Snow" || temp < 0) return Snow;
+  else if (weather === "Rain" || weather === "Drizzle") return Rain;
   else if (weather === "Clear") return Clear;
-  else if (weather === "Snow" || temp < 0) return Snow;
   else if (weather === "Mist" || weather === "Smoke" || weather === "Haze" || weather === "Fog") return Mist;
   else if (weather === "Thunderstorm") return Thunder;
   return Clouds;

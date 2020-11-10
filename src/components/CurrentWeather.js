@@ -26,9 +26,7 @@ const CurrentWeather = () => {
     setIsFlipped(false);
     if (location !== "") {
       axios
-        .get(
-          `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`
-        )
+        .get(`http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`)
         .then((res) => {
           setWeather(res.data);
           setNotFound(false);
@@ -56,8 +54,7 @@ const CurrentWeather = () => {
         </div>
       </div>
     );
-  } else if (!isLoading & notFound)
-    content = <h1 className="alert">This location does not exist.</h1>;
+  } else if (!isLoading & notFound) content = <h1 className="alert">This location does not exist.</h1>;
   else content = <h1 className="alert">Write a location name...</h1>;
   return content;
 };
